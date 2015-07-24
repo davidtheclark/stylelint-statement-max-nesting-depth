@@ -1,0 +1,33 @@
+{
+  "name": "stylelint-statement-max-nesting-depth",
+  "version": "0.1.0",
+  "description": "A stylelint custom rule to limit nesting depth",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidtheclark/stylelint-statement-max-nesting-depth.git"
+  },
+  "keywords": [
+    "stylelint",
+    "stylelint-plugin",
+    "css",
+    "nesting",
+    "linter"
+  ],
+  "author": "David Clark",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidtheclark/stylelint-statement-max-nesting-depth/issues"
+  },
+  "homepage": "https://github.com/davidtheclark/stylelint-statement-max-nesting-depth#readme",
+  "dependencies": {
+    "stylelint": "stylelint/stylelint"
+  },
+  "devDependencies": {
+    "postcss": "^4.1.16",
+    "tape": "^4.0.1"
+  }
+}
