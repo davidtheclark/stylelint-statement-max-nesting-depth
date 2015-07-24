@@ -1,4 +1,4 @@
-# stylelint-statement-max-nesting-depth
+# stylelint-statement-max-nesting-depth [![Build Status](https://travis-ci.org/davidtheclark/stylelint-statement-max-nesting-depth.svg)](https://travis-ci.org/davidtheclark/stylelint-statement-max-nesting-depth)
 
 A [stylelint](https://github.com/stylelint/stylelint) custom rule to limit nesting depth.
 
