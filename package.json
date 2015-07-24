@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/davidtheclark/stylelint-statement-max-nesting-depth#readme",
   "dependencies": {
-    "stylelint": "stylelint/stylelint"
+    "stylelint": "^0.4.0"
   },
   "devDependencies": {
     "postcss": "^4.1.16",
