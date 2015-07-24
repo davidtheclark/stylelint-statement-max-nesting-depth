@@ -32,7 +32,7 @@ function nestingDepth(node, level) {
     return level;
   }
   if (
-    node.parent.type === 'atrule' && node.parent.parent.type === 'root'
+    (node.parent.type === 'atrule' && node.parent.parent.type === 'root')
     || (node.parent.type === 'rule' && !node.parent.selector)) {
     return nestingDepth(node.parent, level);
   }
