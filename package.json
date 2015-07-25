@@ -1,6 +1,6 @@
 {
   "name": "stylelint-statement-max-nesting-depth",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A stylelint custom rule to limit nesting depth",
   "main": "index.js",
   "scripts": {
@@ -24,10 +24,10 @@
   },
   "homepage": "https://github.com/davidtheclark/stylelint-statement-max-nesting-depth#readme",
   "devDependencies": {
-    "postcss": "^4.1.16",
     "tape": "^4.0.1"
   },
   "dependencies": {
+    "stylelint": "^0.4.1",
     "stylelint-rule-tester": "^0.1.0"
   }
 }

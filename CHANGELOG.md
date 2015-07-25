@@ -1,3 +1,7 @@
+# 0.2.1
+
+- Fix dependency typo.
+
 # 0.2.0
 
 - Use `stylelint-rule-tester`.
