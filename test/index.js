@@ -1,9 +1,9 @@
-var ruleTester = require('stylelint').utils.ruleTester;
+var ruleTester = require('stylelint-rule-tester');
 var rule = require('..');
 
 var testRule = ruleTester(rule, rule.ruleName);
 
-testRule.only(1, function(tr) {
+testRule(1, function(tr) {
   basics(tr);
 
   tr.ok('a { b { top: 0; }}', 'no nesting block');
