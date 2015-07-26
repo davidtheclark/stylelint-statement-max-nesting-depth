@@ -67,6 +67,28 @@ a {
 
 Why? Because I think that's how most users would want this thing to work. If you disagree, file an issue.
 
+### Options
+
+#### atRulesDontCount
+
+Type `Boolean`; Default `false`
+
+If `true` *no* at-rules (root-level or nested) will affect the calculation of a statement's nesting depth.
+
+Both of the following `.foo` rules would have a nesting depth of `1`.
+
+```
+a {
+  .foo {}
+}
+
+a {
+  @media print {
+    .foo {}
+  }
+}
+```
+
 ## Installation
 
 ```
@@ -87,7 +109,9 @@ module.exports = {
   },
   rules: {
     // ...
-    'statement-max-nesting-depth': [2, 1], // max nesting depth of 1
+    // The following settings = max nesting depth of 1,
+    // with the option `atRulesDontCount` set to `true`
+    'statement-max-nesting-depth': [2, 1, { atRulesDontCount: true }],
     // ...
   },
 };

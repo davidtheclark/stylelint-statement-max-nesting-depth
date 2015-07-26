@@ -1,3 +1,7 @@
+# 0.3.0
+
+- Add `atRulesDontCount` option.
+
 # 0.2.1
 
 - Fix dependency typo.
