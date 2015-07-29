@@ -4,6 +4,12 @@ A [stylelint](https://github.com/stylelint/stylelint) custom rule to limit nesti
 
 This rule will cause stylelint to warn you whenever a nested rule or at-rule exceeds your specified depth.
 
+## Installation
+
+```
+npm install stylelint-statement-max-nesting-depth
+```
+
 ## Details
 
 ### With or without nesting blocks
@@ -87,12 +93,6 @@ a {
     .foo {}
   }
 }
-```
-
-## Installation
-
-```
-npm install stylelint-statement-max-nesting-depth
 ```
 
 ## Usage
