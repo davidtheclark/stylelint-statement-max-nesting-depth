@@ -1,3 +1,7 @@
+# 0.4.0
+
+- Add rules validation.
+
 # 0.3.0
 
 - Add `atRulesDontCount` option.

@@ -10,11 +10,26 @@ module.exports = function(max, options) {
   options = options || {};
 
   return function(root, result) {
+    utils.validateOptions({
+      ruleName: ruleName,
+      result: result,
+      actual: max,
+      possible: [function(x) { return typeof x === 'number'; }],
+    });
+    utils.validateOptions({
+      ruleName: ruleName,
+      result: result,
+      actual: options,
+      possible: {
+        atRulesDontCount: [true, false],
+      },
+    });
+
     root.eachRule(checkStatement);
     root.eachAtRule(checkStatement);
 
     function checkStatement(statement) {
-      if (statement.type === "rule" && !statement.selector) return;
+      if (statement.type === 'rule' && !statement.selector) return;
       const depth = nestingDepth(statement);
       if (depth > max) {
         utils.report({
