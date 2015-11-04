@@ -24,10 +24,10 @@
   },
   "homepage": "https://github.com/davidtheclark/stylelint-statement-max-nesting-depth#readme",
   "devDependencies": {
-    "tape": "^4.0.1"
+    "tape": "^4.2.2"
   },
   "dependencies": {
-    "stylelint": "^0.6.0",
-    "stylelint-rule-tester": "^0.1.0"
+    "stylelint": "^2.1.0",
+    "stylelint-rule-tester": "^0.3.0"
   }
 }

@@ -25,8 +25,8 @@ module.exports = function(max, options) {
       },
     });
 
-    root.eachRule(checkStatement);
-    root.eachAtRule(checkStatement);
+    root.walkRules(checkStatement);
+    root.walkAtRules(checkStatement);
 
     function checkStatement(statement) {
       if (statement.type === 'rule' && !statement.selector) return;

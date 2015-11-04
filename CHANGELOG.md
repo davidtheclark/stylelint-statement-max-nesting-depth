@@ -1,3 +1,8 @@
+# Head
+
+- Remove PostCSS 4 compatibility.
+- Add PostCSS 5 compatibility.
+
 # 0.4.0
 
 - Add rules validation.
