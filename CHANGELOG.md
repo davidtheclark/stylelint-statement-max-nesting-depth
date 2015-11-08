@@ -1,4 +1,4 @@
-# Head
+# 1.0.0
 
 - Remove PostCSS 4 compatibility.
 - Add PostCSS 5 compatibility.
