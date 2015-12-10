@@ -60,6 +60,13 @@ module.exports = function(max, options) {
       return nestingDepth(node.parent, level);
     }
 
+    if (
+      node.type === 'atrule'
+      && (node.parent.type === 'rule' && options.atRulesDontCount)
+    ) {
+      return nestingDepth(node.parent, level);
+    }
+
     return nestingDepth(node.parent, level + 1);
   }
 };
