@@ -10,6 +10,8 @@ This rule will cause stylelint to warn you whenever a nested rule or at-rule exc
 npm install stylelint-statement-max-nesting-depth
 ```
 
+v2 is compatible with stylelint v3+. For older versions of stylelint, use older versions of this plugin.
+
 ## Details
 
 Preprocessers like Sass, Less, and Stylus have nesting. Nesting can be enabled via PostCSS with [postcss-nested](https://github.com/postcss/postcss-nested) or [postcss-nesting](https://github.com/jonathantneal/postcss-nesting).
@@ -105,21 +107,20 @@ a {
 
 ## Usage
 
-Add it to your stylelint config `plugins` object, then add it to your rules, specifying a max nesting depth as the second item of your settings array.
+Add it to your stylelint config `plugins` array, then add '`statement-max-nesting-depth'` to your rules, specifying a max nesting depth as the primary option.
 
 Like so:
 
 ```js
-// myStylelintConfig.js
-module.exports = {
-  plugins: {
-    'statement-max-nesting-depth': require('stylelint-statement-max-nesting-depth'),
-  },
-  rules: {
+{
+  "plugins": [
+    "stylelint-statement-max-nesting-depth"
+  ],
+  "rules": {
     // ...
     // The following settings = max nesting depth of 1,
     // with the option `atRulesDontCount` set to `true`
-    'statement-max-nesting-depth': [2, 1, { atRulesDontCount: true }],
+    "statement-max-nesting-depth": [1, { atRulesDontCount: true }],
     // ...
   },
 };
