@@ -12,17 +12,11 @@ npm install stylelint-statement-max-nesting-depth
 
 ## Details
 
-### With or without nesting blocks
+Preprocessers like Sass, Less, and Stylus have nesting. Nesting can be enabled via PostCSS with [postcss-nested](https://github.com/postcss/postcss-nested) or [postcss-nesting](https://github.com/jonathantneal/postcss-nesting).
 
-This rule works with or without nesting blocks.
-Sass and Less do not have nesting blocks; [the CSS Nesting Module draft](http://tabatkins.github.io/specs/css-nesting/) does.
-
-Nesting *without* nesting blocks can be enabled with [postcss-nested](https://github.com/postcss/postcss-nested).
-
-Nesting *with* nesting blocks can be enabled with [postcss-nesting](https://github.com/jonathantneal/postcss-nesting).
+Here's how it works:
 
 ```css
-/* without nesting blocks */
 a {
   b { /* nesting level 1 */
     .foo { /* nesting level 2 */
@@ -34,19 +28,6 @@ a {
     }
   }
 }
-
-/* with nesting blocks */
-a {{
-  b {{ /* nesting level 1 */
-    .foo {{ /* nesting level 2 */
-      .bar {{ /* nesting level 3 */
-        .baz {{ /* nesting level 4 */
-          color: pink;
-        }}
-      }}
-    }}
-  }}
-}}
 ```
 
 ### Nesting depth ignores root-level at-rules

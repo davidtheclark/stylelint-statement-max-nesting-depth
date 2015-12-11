@@ -7,50 +7,32 @@ var testRule = ruleTester(statementMaxNestingDepth.rule, statementMaxNestingDept
 testRule(1, function(tr) {
   basics(tr);
 
-  tr.ok('a { b { top: 0; }}', 'no nesting block');
-  tr.ok('a {{ b { top: 0; }}}', 'nesting block');
+  tr.ok('a { b { top: 0; }}');
   tr.notOk('a { b { c { top: 0; }}}', messages.rejected);
-  tr.notOk('a {{ b {{ c { top: 0; }}}}}', messages.rejected, 'nesting block');
 
-  tr.ok('@media print { a { b { top: 0; }}}', 'no nesting block');
-  tr.ok('@media print { a {{ b { top: 0; }}}}', 'nesting block');
+  tr.ok('@media print { a { b { top: 0; }}}');
   tr.notOk('@media print { a { b { c { top: 0; }}}}', messages.rejected);
-  tr.notOk('@media print { a {{ b {{ c { top: 0; }}}}}}', messages.rejected, 'nesting block');
 
-  tr.ok('a { top: 0; { b { top: 0; }}}');
-  tr.ok('a {{ b { top: 0; }} top: 0; }');
-  tr.notOk('a { top: 0; { b { top: 0; { c { top: 0; }}}}}', messages.rejected);
-  tr.notOk('a { { b { top: 0; { c { top: 0; }}}} top: 0; }', messages.rejected);
+  tr.ok('a { top: 0; b { top: 0; }}');
+  tr.notOk('a { top: 0; b { top: 0; c { top: 0; }}}', messages.rejected);
+  tr.notOk('a { b { top: 0; c { top: 0; }} top: 0; }', messages.rejected);
 });
 
 testRule(3, function(tr) {
   basics(tr);
 
-  tr.ok('a { b { c { d { top: 0; }}}}', 'no nesting block');
-  tr.ok('a {{ b {{ c {{ d { top: 0; }}}}}}}', 'nesting block');
+  tr.ok('a { b { c { d { top: 0; }}}}');
   tr.notOk('a { b { c { d { e { top: 0; }}}}}', messages.rejected);
-  tr.notOk('a {{ b {{ c {{ d {{ e { top: 0; }}}}}}}}}', messages.rejected, 'nesting block');
-
-  tr.ok('@media print { a { b { c { d { top: 0; }}}}}', 'no nesting block');
-  tr.ok('@media print { a {{ b {{ c {{ d { top: 0; }}}}}}}}', 'nesting block');
-  tr.notOk(
-    '@media print { a {{ b {{ c {{ d {{ e { top: 0; }}}}}}}}}}',
-    messages.rejected,
-    'nesting block'
-  );
+  tr.ok('@media print { a { b { c { d { top: 0; }}}}}');
 });
 
 testRule(1, { atRulesDontCount: true }, function(tr) {
   basics(tr);
 
   tr.ok('a { b { top: 0; }}');
-  tr.ok('a {{ b { top: 0; }}}');
   tr.ok('a { @media print { b { top: 0; }}}');
-  tr.ok('a {{ @media print {{ b { top: 0; }}}}}');
   tr.notOk('a { b { c { top: 0; }}}', messages.rejected);
-  tr.notOk('a {{ b {{ c { top: 0; }}}}}', messages.rejected);
   tr.notOk('a { @media print { b { c { top: 0; }}}}', messages.rejected);
-  tr.notOk('a {{ @media print {{ b {{ c { top: 0; }}}}}}}', messages.rejected);
 });
 
 testRule(1, { countNestedAtRules: false }, function(tr) {

@@ -34,7 +34,6 @@ module.exports = stylelint.createPlugin(ruleName, function(max, options) {
     root.walkAtRules(checkStatement);
 
     function checkStatement(statement) {
-      if (statement.type === 'rule' && !statement.selector) return;
       const depth = nestingDepth(statement);
       if (depth > max) {
         stylelint.utils.report({
@@ -71,8 +70,7 @@ module.exports = stylelint.createPlugin(ruleName, function(max, options) {
     if (node.parent.type === 'rule') {
       // Conditions under which rules' children don't count
       if (
-        !node.parent.selector
-        || (node.type === 'atrule' && !options.countNestedAtRules)
+        (node.type === 'atrule' && !options.countNestedAtRules)
       ) {
         return nestingDepth(node.parent, level);
       }

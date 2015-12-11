@@ -3,8 +3,9 @@
 ## Head
 
 - Add stylelint 3 compatibility.
-- Remove stylelint 2 compatibility.
 - Add `countNestedAtRules` option.
+- Remove stylelint 2 compatibility.
+- Remove nesting block support, as it was removed from the spec draft.
 
 ## 1.0.0
 
