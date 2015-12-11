@@ -58,11 +58,11 @@ Why? Because I think that's how most users would want this thing to work. If you
 
 ### Options
 
-#### atRulesDontCount
+#### countAtRules
 
-Type `Boolean`; Default `false`
+Type `Boolean`; Default `true`
 
-If `true` *no* at-rules (root-level or nested) will affect the calculation of a statement's nesting depth.
+If `false` *no* at-rules (root-level or nested) will affect the calculation of a statement's nesting depth.
 
 Both of the following `.foo` rules would have a nesting depth of `1`.
 
@@ -77,11 +77,12 @@ a {
   }
 }
 ```
+
 #### countedNestedAtRules
 
 Type `Boolean`; Default `true`
 
-If `false`, nested at-rules will not affect the calculation of a statemen't nesting depth.
+If `false`, nested at-rules will not affect the calculation of a statement's nesting depth.
 
 None of the following would involve a nesting depth greater than `1`.
 
@@ -119,8 +120,8 @@ Like so:
   "rules": {
     // ...
     // The following settings = max nesting depth of 1,
-    // with the option `atRulesDontCount` set to `true`
-    "statement-max-nesting-depth": [1, { atRulesDontCount: true }],
+    // with the option `countAtRules` set to `false`
+    "statement-max-nesting-depth": [1, { countAtRules: false }],
     // ...
   },
 };

@@ -10,6 +10,7 @@ var messages = stylelint.utils.ruleMessages(ruleName, {
 module.exports = stylelint.createPlugin(ruleName, function(max, options) {
   // Set defaults
   options = assign({
+    countAtRules: true,
     countNestedAtRules: true,
   }, options);
 
@@ -25,7 +26,7 @@ module.exports = stylelint.createPlugin(ruleName, function(max, options) {
       result: result,
       actual: options,
       possible: {
-        atRulesDontCount: [true, false],
+        countAtRules: [true, false],
         countNestedAtRules: [true, false],
       },
     });
@@ -60,7 +61,7 @@ module.exports = stylelint.createPlugin(ruleName, function(max, options) {
     if (node.parent.type === 'atrule') {
       // Conditions under which at-rules' children don't count
       if (
-        options.atRulesDontCount
+        !options.countAtRules
         || node.parent.parent.type === 'root'
       ) {
         return nestingDepth(node.parent, level);

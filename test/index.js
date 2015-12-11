@@ -26,7 +26,7 @@ testRule(3, function(tr) {
   tr.ok('@media print { a { b { c { d { top: 0; }}}}}');
 });
 
-testRule(1, { atRulesDontCount: true }, function(tr) {
+testRule(1, { countAtRules: false }, function(tr) {
   basics(tr);
 
   tr.ok('a { b { top: 0; }}');

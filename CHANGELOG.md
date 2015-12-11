@@ -4,6 +4,7 @@
 
 - Add stylelint 3 compatibility.
 - Add `countNestedAtRules` option.
+- Rename `atRulesDontCount` option to `countAtRules`, defaulting to `true`.
 - Remove stylelint 2 compatibility.
 - Remove nesting block support, as it was removed from the spec draft.
 
