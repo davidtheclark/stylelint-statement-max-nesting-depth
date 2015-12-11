@@ -10,7 +10,7 @@ This rule will cause stylelint to warn you whenever a nested rule or at-rule exc
 npm install stylelint-statement-max-nesting-depth
 ```
 
-v2 is compatible with stylelint v3+. For older versions of stylelint, use older versions of this plugin.
+v2+ is compatible with stylelint v3+. For older versions of stylelint, use older versions of this plugin.
 
 ## Details
 

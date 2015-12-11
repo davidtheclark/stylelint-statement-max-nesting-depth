@@ -1,6 +1,6 @@
 # Changelog
 
-## Head
+## 2.0.0
 
 - Add stylelint 3 compatibility.
 - Add `countNestedAtRules` option.
