@@ -27,6 +27,7 @@
     "tape": "^4.2.2"
   },
   "dependencies": {
+    "object-assign": "^4.0.1",
     "stylelint": "^2.0.0",
     "stylelint-rule-tester": "^0.3.0"
   }

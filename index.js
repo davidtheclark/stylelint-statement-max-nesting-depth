@@ -1,3 +1,4 @@
+var assign = require('object-assign');
 var utils = require('stylelint').utils;
 
 var ruleName = 'statement-max-nesting-depth';
@@ -7,7 +8,10 @@ var messages = utils.ruleMessages(ruleName, {
 });
 
 module.exports = function(max, options) {
-  options = options || {};
+  // Set defaults
+  options = assign({
+    countNestedAtRules: true,
+  }, options);
 
   return function(root, result) {
     utils.validateOptions({
@@ -22,6 +26,7 @@ module.exports = function(max, options) {
       actual: options,
       possible: {
         atRulesDontCount: [true, false],
+        countNestedAtRules: [true, false],
       },
     });
 
@@ -45,21 +50,37 @@ module.exports = function(max, options) {
   function nestingDepth(node, level) {
     level = level || 0;
 
+    // The nesting depth level's computation has finished
+    // when this function, recursively called, receives
+    // a node that is not nested -- a direct child of the
+    // root node
     if (node.parent.type === 'root') {
       return level;
     }
 
-    if (
-      node.parent.type === 'atrule'
-      && (node.parent.parent.type === 'root' || options.atRulesDontCount)
-    ) {
-      return nestingDepth(node.parent, level);
+    if (node.parent.type === 'atrule') {
+      // Conditions under which at-rules' children don't count
+      if (
+        options.atRulesDontCount
+        || node.parent.parent.type === 'root'
+      ) {
+        return nestingDepth(node.parent, level);
+      }
     }
 
-    if (node.parent.type === 'rule' && !node.parent.selector) {
-      return nestingDepth(node.parent, level);
+    if (node.parent.type === 'rule') {
+      // Conditions under which rules' children don't count
+      if (
+        !node.parent.selector
+        || (node.type === 'atrule' && !options.countNestedAtRules)
+      ) {
+        return nestingDepth(node.parent, level);
+      }
     }
 
+    // Unless any of the conditions above apply, we want to
+    // add 1 to the nesting depth level and then check the parent,
+    // continuing to add until we hit the root node
     return nestingDepth(node.parent, level + 1);
   }
 };

@@ -94,6 +94,33 @@ a {
   }
 }
 ```
+#### countedNestedAtRules
+
+Type `Boolean`; Default `true`
+
+If `false`, nested at-rules will not affect the calculation of a statemen't nesting depth.
+
+None of the following would involve a nesting depth greater than `1`.
+
+```
+a {
+  .foo {}
+}
+
+a {
+  @media print {
+    .foo {}
+  }
+}
+
+a {
+  .foo {
+    @media print {
+      color: pink;
+    }
+  }
+}
+```
 
 ## Usage
 
