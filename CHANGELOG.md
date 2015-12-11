@@ -2,6 +2,8 @@
 
 ## Head
 
+- Add stylelint 3 compatibility.
+- Remove stylelint 2 compatibility.
 - Add `countNestedAtRules` option.
 
 ## 1.0.0

@@ -1,26 +1,26 @@
 var assign = require('object-assign');
-var utils = require('stylelint').utils;
+var stylelint = require('stylelint');
 
 var ruleName = 'statement-max-nesting-depth';
 
-var messages = utils.ruleMessages(ruleName, {
+var messages = stylelint.utils.ruleMessages(ruleName, {
   rejected: 'Nesting exceeds maximum nesting depth',
 });
 
-module.exports = function(max, options) {
+module.exports = stylelint.createPlugin(ruleName, function(max, options) {
   // Set defaults
   options = assign({
     countNestedAtRules: true,
   }, options);
 
   return function(root, result) {
-    utils.validateOptions({
+    stylelint.utils.validateOptions({
       ruleName: ruleName,
       result: result,
       actual: max,
       possible: [function(x) { return typeof x === 'number'; }],
     });
-    utils.validateOptions({
+    stylelint.utils.validateOptions({
       ruleName: ruleName,
       result: result,
       actual: options,
@@ -37,7 +37,7 @@ module.exports = function(max, options) {
       if (statement.type === 'rule' && !statement.selector) return;
       const depth = nestingDepth(statement);
       if (depth > max) {
-        utils.report({
+        stylelint.utils.report({
           ruleName: ruleName,
           result: result,
           node: statement,
@@ -83,7 +83,7 @@ module.exports = function(max, options) {
     // continuing to add until we hit the root node
     return nestingDepth(node.parent, level + 1);
   }
-};
+});
 
 module.exports.ruleName = ruleName;
 module.exports.messages = messages;
