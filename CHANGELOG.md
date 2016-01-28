@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.1
+
+- Loosen stylelint version range to allow for v4 (or anything higher than 3).
+
 ## 2.0.0
 
 - Add stylelint 3 compatibility.
