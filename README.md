@@ -80,7 +80,7 @@ a {
 }
 ```
 
-#### countedNestedAtRules
+#### countNestedAtRules
 
 Type `Boolean`; Default `true`
 
