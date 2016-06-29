@@ -125,7 +125,7 @@ Like so:
     // ...
     // The following settings = max nesting depth of 1,
     // with the option `countAtRules` set to `false`
-    "statement-max-nesting-depth": [1, { countAtRules: false }],
+    "plugin/statement-max-nesting-depth": [1, { countAtRules: false }],
     // ...
   },
 };
