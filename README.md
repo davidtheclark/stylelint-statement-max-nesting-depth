@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/davidtheclark/stylelint-statement-max-nesting-depth.svg)](https://travis-ci.org/davidtheclark/stylelint-statement-max-nesting-depth)
 
-**Deprecated: use stylelint's [`max-nesting-depth`](https://github.com/stylelint/stylelint/tree/master/src/rules/max-nesting-depth) rule instead.**
+**Deprecated: use stylelint's [`max-nesting-depth`](https://github.com/stylelint/stylelint/tree/master/lib/rules/max-nesting-depth) rule instead.**
 
 A [stylelint](https://github.com/stylelint/stylelint) custom rule to limit nesting depth.
 
