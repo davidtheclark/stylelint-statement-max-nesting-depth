@@ -1,7 +1,7 @@
 var assign = require('object-assign');
 var stylelint = require('stylelint');
 
-var ruleName = 'statement-max-nesting-depth';
+var ruleName = 'plugin/statement-max-nesting-depth';
 
 var messages = stylelint.utils.ruleMessages(ruleName, {
   rejected: 'Nesting exceeds maximum nesting depth',

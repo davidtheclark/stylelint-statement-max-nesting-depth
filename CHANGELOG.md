@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.2
+
+- Add "plugin" namespace to rule to fix stylelint deprecation warning.
+
 ## 2.0.1
 
 - Loosen stylelint version range to allow for v4 (or anything higher than 3).
